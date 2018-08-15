@@ -2,10 +2,14 @@ defmodule Login do
   @moduledoc """
 
   """
-  defstruct username: nil,  age: nil, email_address: nil
+  defstruct username: nil, age: nil, email_address: nil
 
   def cast_login(params) do
-    %Login{username: params["username"], age: params["age"], email_address: params["email_address"]}
+    %Login{
+      username: params["username"],
+      age: params["age"],
+      email_address: params["email_address"]
+    }
   end
 
   def print(%Login{} = login) do

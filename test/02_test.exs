@@ -5,6 +5,7 @@ defmodule GradualTypesTest02 do
   test "print login with valid login" do
     params = %{"username" => "waldo", "email_address" => "waldo@where.com", "age" => 20}
     login = Login.cast_login(params)
+
     assert Login.print(login) ==
              "username: waldo, email_address: waldo@where.com, next_year_age: 21"
   end
