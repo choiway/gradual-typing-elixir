@@ -22,4 +22,5 @@ erl_crash.dump
 # Ignore package tarball (built via "mix hex.build").
 gradual_types-*.tar
 
+# Ignore elixir_ls files
 /.elixir_ls/
