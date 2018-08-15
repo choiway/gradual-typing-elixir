@@ -4,6 +4,18 @@ defmodule Login do
   """
   defstruct username: nil,  age: nil, email_address: nil
 
+  def cast_login(params) do
+    %Login{username: params["username"], age: params["age"], email_address: params["email_address"]}
+  end
+
+  def print(%Login{} = login) do
+    next_year_age = login.age + 1
+
+    "username: #{login.username}, email_address: #{login.email_address}, next_year_age: #{
+      next_year_age
+    }"
+  end
+
   def print(params) do
     next_year_age = params["age"] + 1
 
