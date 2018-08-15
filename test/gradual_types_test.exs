@@ -8,7 +8,9 @@ defmodule GradualTypesTest do
 
   test "print login with valid params" do
     params = %{"username" => "waldo", "email_address" => "waldo@where.com", "age" => 20}
-    assert Login.print(params) == "username: waldo, email_address: waldo@where.com, next_year_age: 21"
+
+    assert Login.print(params) ==
+             "username: waldo, email_address: waldo@where.com, next_year_age: 21"
   end
 
   test "raise error for bad type for age" do
