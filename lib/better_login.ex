@@ -26,7 +26,8 @@ defmodule BetterLogin do
     }"
   end
 
-  def print(params) do
+  @spec print(%{}) :: String.t
+  def print(params) when is_map(params) do
     next_year_age = params["age"] + 1
 
     "username: #{params["username"]}, email_address: #{params["email_address"]}, next_year_age: #{

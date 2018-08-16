@@ -4,7 +4,8 @@ defmodule Login do
   """
   defstruct username: nil,  age: nil, email_address: nil
 
-  def cast_login(params) do
+  @spec cast_login(map()) :: %Login{}
+  def cast_login(params) when is_map(params) do
     %Login{username: params["username"], age: params["age"], email_address: params["email_address"]}
   end
 
