@@ -1,14 +1,24 @@
-defmodule Login do
+defmodule BetterLogin do
   @moduledoc """
 
   """
-  defstruct username: nil,  age: nil, email_address: nil
+  use Ecto.Schema
+  import Ecto.Changeset
 
-  def cast_login(params) do
-    %Login{username: params["username"], age: params["age"], email_address: params["email_address"]}
+  embedded_schema do
+    field(:username, :string)
+    field(:email_address, :string)
+    field(:age, :integer)
   end
 
-  def print(%Login{} = login) do
+  def marshal(params) do
+    %BetterLogin{}
+    |> cast(params, [:username, :email_address, :age])
+    |> apply_changes
+  end
+
+  @spec print(%BetterLogin{}) :: String.t
+  def print(%BetterLogin{} = login) do
     next_year_age = login.age + 1
 
     "username: #{login.username}, email_address: #{login.email_address}, next_year_age: #{
