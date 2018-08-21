@@ -9,6 +9,7 @@ defmodule Login do
     %Login{username: params["username"], age: params["age"], email_address: params["email_address"]}
   end
 
+  @spec print(%Login{}) :: String.t
   def print(%Login{} = login) do
     next_year_age = login.age + 1
 
